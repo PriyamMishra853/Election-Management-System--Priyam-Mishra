@@ -1,0 +1,42 @@
+Microsoft Windows [Version 10.0.19045.5131]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\LIVA>pip install mysql-connector-python
+Collecting mysql-connector-python
+  Downloading mysql_connector_python-9.1.0-cp312-cp312-win_amd64.whl.metadata (6.2 kB)
+Downloading mysql_connector_python-9.1.0-cp312-cp312-win_amd64.whl (16.1 MB)
+   ---------------------------------------- 16.1/16.1 MB 2.4 MB/s eta 0:00:00
+Installing collected packages: mysql-connector-python
+Successfully installed mysql-connector-python-9.1.0
+
+[notice] A new release of pip is available: 24.0 -> 24.3.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\LIVA>pip install Pillow
+Collecting Pillow
+  Downloading pillow-11.0.0-cp312-cp312-win_amd64.whl.metadata (9.3 kB)
+Downloading pillow-11.0.0-cp312-cp312-win_amd64.whl (2.6 MB)
+   ---------------------------------------- 2.6/2.6 MB 10.9 MB/s eta 0:00:00
+Installing collected packages: Pillow
+Successfully installed Pillow-11.0.0
+
+[notice] A new release of pip is available: 24.0 -> 24.3.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\LIVA>pip install reportlab
+Collecting reportlab
+  Downloading reportlab-4.2.5-py3-none-any.whl.metadata (1.5 kB)
+Requirement already satisfied: pillow>=9.0.0 in c:\users\liva\appdata\local\programs\python\python312\lib\site-packages (from reportlab) (11.0.0)
+Collecting chardet (from reportlab)
+  Downloading chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Downloading reportlab-4.2.5-py3-none-any.whl (1.9 MB)
+   ---------------------------------------- 1.9/1.9 MB 8.8 MB/s eta 0:00:00
+Downloading chardet-5.2.0-py3-none-any.whl (199 kB)
+   ---------------------------------------- 199.4/199.4 kB 12.6 MB/s eta 0:00:00
+Installing collected packages: chardet, reportlab
+Successfully installed chardet-5.2.0 reportlab-4.2.5
+
+[notice] A new release of pip is available: 24.0 -> 24.3.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\LIVA>
