@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}EMS{% endblock %} · Election Management System</title>
+<link rel="icon" href="{{ url_for('static', filename='img/icon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head><body>
+<header class="nav"><a class="brand" href="{{ url_for('public.index') }}">🗳️ <b>EMS</b></a><nav>
+{% if me %}{% if me.role=='admin' %}<a href="{{ url_for('admin.home') }}">Dashboard</a><a href="{{ url_for('admin.voters') }}">Voters</a><a href="{{ url_for('admin.audit') }}">Audit log</a>
+{% else %}<a href="{{ url_for('voter.dashboard') }}">My elections</a>{% endif %}
+<a href="{{ url_for('public.verify') }}">Verify receipt</a><span class="who">{{ me.name }} · {{ me.voter_id }}</span><a class="btn sm ghost" href="{{ url_for('auth.logout') }}">Log out</a>
+{% else %}<a href="{{ url_for('public.verify') }}">Verify receipt</a><a href="{{ url_for('auth.register') }}">Register</a><a class="btn sm" href="{{ url_for('auth.login') }}">Sign in</a>{% endif %}
+</nav></header>
+<main>{% with msgs = get_flashed_messages(with_categories=true) %}{% for c,m in msgs %}<div class="flash {{ c }}">{{ m }}</div>{% endfor %}{% endwith %}
+{% block body %}{% endblock %}</main>
+<footer>Election Management System · by Priyam Mishra</footer></body></html>

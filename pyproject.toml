@@ -1,0 +1,11 @@
+[project]
+name = "election-management-system"
+version = "2.0.0"
+description = "A fully automated election management system built with Flask and SQLite."
+authors = [{ name = "Priyam Mishra" }]
+requires-python = ">=3.9"
+dependencies = ["Flask>=3.0", "reportlab>=4.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

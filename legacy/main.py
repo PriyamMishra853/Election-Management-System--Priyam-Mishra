@@ -23,7 +23,7 @@ homeImg = ImageTk.PhotoImage(Image.open("./Assets/homeImg.jpg"))
 
 
 #Connect with MySQL database 
-mydb = mysql.connect(host="localhost",user="root",password="PRIYAM203664",database="voting_system")
+mydb = mysql.connect(host="localhost",user="root",password="YOUR_MYSQL_PASSWORD",database="voting_system")
 
 
 #Functions

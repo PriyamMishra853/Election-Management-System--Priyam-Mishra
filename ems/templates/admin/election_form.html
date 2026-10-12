@@ -1,0 +1,6 @@
+{% extends 'layout/base.html' %}{% block title %}New election{% endblock %}{% block body %}
+<form method="post" class="card narrow"><h1>Schedule an election</h1><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Title<input name="title" value="{{ form.title or '' }}" required></label><label>Description<textarea name="description">{{ form.description or '' }}</textarea></label>
+<div class="two"><label>Polling opens<input type="datetime-local" name="start_at" value="{{ form.start_at }}" required></label><label>Polling closes<input type="datetime-local" name="end_at" value="{{ form.end_at }}" required></label></div>
+<label class="check"><input type="checkbox" name="nota" value="1" {{ 'checked' if form.nota }}> Add NOTA (None of the Above) to every district</label>
+<button class="btn">Schedule</button></form>{% endblock %}

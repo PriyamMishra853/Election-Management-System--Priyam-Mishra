@@ -1,0 +1,11 @@
+{% extends 'layout/base.html' %}{% block title %}Results{% endblock %}{% block body %}
+<div class="row between"><div><h1>{{ e.title }}</h1><p class="muted">{% if e.results_published %}Official results, published automatically{% else %}Live provisional count (visible to admins only){% endif %} · {{ t.total }} ballots</p></div>
+<a class="btn ghost" href="{{ url_for('public.results_pdf', eid=e.id) }}">⬇ Download PDF</a></div>
+<div class="grid two-col"><div class="card"><h3>Votes by party</h3>{% set mx = (t.party_votes.values()|max) if t.party_votes else 0 %}
+{% for p,v in t.party_votes|dictsort(by='value', reverse=true) %}<div class="bar"><span>{{ p }}</span><div><i style="width:{{ (100*v/mx) if mx else 0 }}%"></i></div><b>{{ v }}</b></div>{% endfor %}</div>
+<div class="card"><h3>Seats won</h3>{% for p,s in t.seats|dictsort(by='value', reverse=true) %}<div class="bar"><span>{{ p }}</span><div><i class="alt" style="width:{{ 100*s/DISTRICTS|length }}%"></i></div><b>{{ s }}</b></div>{% else %}<p class="muted">No seats decided yet.</p>{% endfor %}</div></div>
+<h2>Districts</h2><div class="grid">{% for d,cands in t.districts.items() %}<div class="card"><h3>{{ d }}</h3>
+{% set w = t.winners[d] %}<p>{% if w %}🏆 <b>{{ w.name }}</b> ({{ w.party }}){% else %}<span class="muted">Undecided: tie or no votes</span>{% endif %}</p>
+<table>{% for c in cands %}<tr><td>{{ c.name }}</td><td>{{ c.party }}</td><td class="num">{{ c.votes }}</td></tr>{% endfor %}</table></div>{% endfor %}</div>
+<h2>Turnout</h2><div class="card"><table><tr><th>District</th><th>Voted</th><th>Registered</th><th>Turnout</th></tr>
+{% for r in turnout %}<tr><td>{{ r.district }}</td><td class="num">{{ r.voted }}</td><td class="num">{{ r.registered }}</td><td class="num">{{ r.pct }}%</td></tr>{% endfor %}</table></div>{% endblock %}

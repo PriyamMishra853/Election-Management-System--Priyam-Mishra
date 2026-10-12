@@ -1,0 +1,4 @@
+{% extends 'layout/base.html' %}{% block title %}Verify receipt{% endblock %}{% block body %}
+<form method="post" class="card narrow"><h1>Verify your ballot</h1><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Receipt code<input name="receipt" required></label><button class="btn">Verify</button>
+{% if found %}<div class="flash ok">✔ Ballot found and counted in “{{ found }}”.</div>{% elif found is sameas false %}<div class="flash error">No ballot matches that receipt.</div>{% endif %}</form>{% endblock %}

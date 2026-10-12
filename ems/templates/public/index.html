@@ -1,0 +1,7 @@
+{% extends 'layout/base.html' %}{% block title %}Home{% endblock %}{% block body %}
+<section class="hero"><h1>Your vote, your voice.</h1><p>Register online, get your Voter ID right away, cast a secret ballot, and see results published automatically when polling closes.</p>
+<div class="row">{% if not me %}<a class="btn" href="{{ url_for('auth.register') }}">Register as a voter</a><a class="btn ghost" href="{{ url_for('auth.login') }}">Sign in</a>{% endif %}</div></section>
+<div class="stats"><div><b>{{ stats.voters }}</b>Registered voters</div><div><b>{{ stats.elections }}</b>Elections</div><div><b>{{ stats.ballots }}</b>Ballots cast</div></div>
+<h2>Elections</h2><div class="grid">{% for e in elections %}<div class="card">{% include 'partials/_status.html' %}<h3>{{ e.title }}</h3><p class="muted">{{ e.start_at|dt }} → {{ e.end_at|dt }}</p>
+{% if e.results_published %}<a class="btn sm" href="{{ url_for('public.results', eid=e.id) }}">View results</a>{% elif status(e)=='live' %}<a class="btn sm" href="{{ url_for('voter.dashboard') }}">Vote now</a>{% endif %}</div>
+{% else %}<p class="muted">No elections scheduled yet.</p>{% endfor %}</div>{% endblock %}

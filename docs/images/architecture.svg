@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1100" height="760" rx="18" fill="#ffffff"/>
+
+  <text x="550" y="46" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Election Management System · Architecture</text>
+  <text x="550" y="72" text-anchor="middle" font-size="14" fill="#64748b">Flask web application · SQLite database · background automation engine</text>
+
+  <!-- Clients -->
+  <text x="60" y="106" font-size="12" font-weight="700" letter-spacing="1.5" fill="#64748b">CLIENTS · ANY WEB BROWSER (DESKTOP OR MOBILE)</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="60" y="116" width="300" height="66" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="210" y="143" font-size="16" font-weight="700" fill="#1e3a8a">Voter</text>
+    <text x="210" y="165" fill="#1e40af">Register · Sign in · Cast secret ballot</text>
+
+    <rect x="400" y="116" width="300" height="66" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="550" y="143" font-size="16" font-weight="700" fill="#1e3a8a">Election Officer (Admin)</text>
+    <text x="550" y="165" fill="#1e40af">Schedule · Candidates · Voter roll · Audit</text>
+
+    <rect x="740" y="116" width="300" height="66" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="890" y="143" font-size="16" font-weight="700" fill="#1e3a8a">Public</text>
+    <text x="890" y="165" fill="#1e40af">View results · Verify ballot receipt</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="1.6" fill="none" marker-end="url(#arrow)" marker-start="url(#arrow)">
+    <line x1="210" y1="186" x2="210" y2="230"/>
+    <line x1="550" y1="186" x2="550" y2="230"/>
+    <line x1="890" y1="186" x2="890" y2="230"/>
+  </g>
+  <rect x="612" y="198" width="226" height="22" rx="11" fill="#ffffff"/>
+  <text x="725" y="214" text-anchor="middle" font-size="12" fill="#475569">HTTP · HTML forms · session cookie</text>
+
+  <!-- Flask application -->
+  <rect x="40" y="236" width="1020" height="262" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="64" y="264" font-size="16" font-weight="700" fill="#0f172a">Flask application</text>
+  <text x="212" y="264" font-size="13" fill="#64748b">ems/ package · started by run.py</text>
+
+  <rect x="64" y="278" width="972" height="44" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="550" y="305" text-anchor="middle" font-size="14" fill="#78350f"><tspan font-weight="700">Security layer</tspan>  ·  CSRF tokens  ·  session auth  ·  role checks  ·  hashed passwords  ·  input validation</text>
+
+  <g text-anchor="middle">
+    <rect x="64" y="338" width="228" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="178" y="365" font-size="15" font-weight="700" fill="#1e3a8a">public blueprint</text>
+    <text x="178" y="387" font-size="12.5" fill="#1e40af">home · results · PDF · verify</text>
+
+    <rect x="312" y="338" width="228" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="426" y="365" font-size="15" font-weight="700" fill="#1e3a8a">auth blueprint</text>
+    <text x="426" y="387" font-size="12.5" fill="#1e40af">register · sign in · sign out</text>
+
+    <rect x="560" y="338" width="228" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="674" y="365" font-size="15" font-weight="700" fill="#1e3a8a">voter blueprint</text>
+    <text x="674" y="387" font-size="12.5" fill="#1e40af">dashboard · ballot · receipt</text>
+
+    <rect x="808" y="338" width="228" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="922" y="365" font-size="15" font-weight="700" fill="#1e3a8a">admin blueprint</text>
+    <text x="922" y="387" font-size="12.5" fill="#1e40af">elections · voters · audit</text>
+  </g>
+
+  <g text-anchor="middle">
+    <rect x="64" y="420" width="290" height="62" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="209" y="446" font-size="15" font-weight="700" fill="#334155">Jinja2 templates</text>
+    <text x="209" y="467" font-size="12.5" fill="#475569">responsive CSS · light and dark mode</text>
+
+    <rect x="374" y="420" width="662" height="62" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="705" y="446" font-size="15" font-weight="700" fill="#14532d">Automation engine  (background thread, every 30 s)</text>
+    <text x="705" y="467" font-size="12.5" fill="#166534">opens and closes polls by clock · counts votes · decides winners · publishes results · PDF report</text>
+  </g>
+
+  <!-- Arrows to data -->
+  <g stroke="#475569" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+    <line x1="300" y1="502" x2="300" y2="552"/>
+    <path d="M 900 486 L 900 552"/>
+  </g>
+  <rect x="312" y="516" width="196" height="22" rx="11" fill="#ffffff"/>
+  <text x="410" y="532" text-anchor="middle" font-size="12" fill="#475569">sqlite3 · parameterised SQL</text>
+  <rect x="912" y="516" width="128" height="22" rx="11" fill="#ffffff"/>
+  <text x="976" y="532" text-anchor="middle" font-size="12" fill="#475569">writes PDF files</text>
+
+  <!-- Data -->
+  <rect x="40" y="558" width="680" height="172" rx="14" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="64" y="586" font-size="16" font-weight="700" fill="#4c1d95">SQLite database</text>
+  <text x="196" y="586" font-size="13" fill="#6d28d9">instance/ems.db</text>
+
+  <g text-anchor="middle">
+    <rect x="64" y="602" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="164" y="624" font-size="14" font-weight="700" fill="#4c1d95">users</text>
+    <text x="164" y="643" font-size="12" fill="#6d28d9">voters and admins</text>
+
+    <rect x="280" y="602" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="380" y="624" font-size="14" font-weight="700" fill="#4c1d95">elections</text>
+    <text x="380" y="643" font-size="12" fill="#6d28d9">schedule and status</text>
+
+    <rect x="496" y="602" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="596" y="624" font-size="14" font-weight="700" fill="#4c1d95">candidates</text>
+    <text x="596" y="643" font-size="12" fill="#6d28d9">per district, with NOTA</text>
+
+    <rect x="64" y="664" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="164" y="686" font-size="14" font-weight="700" fill="#4c1d95">ballots</text>
+    <text x="164" y="705" font-size="12" fill="#6d28d9">anonymous votes</text>
+
+    <rect x="280" y="664" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="380" y="686" font-size="14" font-weight="700" fill="#4c1d95">participation</text>
+    <text x="380" y="705" font-size="12" fill="#6d28d9">who voted, never how</text>
+
+    <rect x="496" y="664" width="200" height="52" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="596" y="686" font-size="14" font-weight="700" fill="#4c1d95">audit</text>
+    <text x="596" y="705" font-size="12" fill="#6d28d9">every action logged</text>
+  </g>
+
+  <rect x="750" y="558" width="310" height="172" rx="14" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="905" y="600" text-anchor="middle" font-size="16" font-weight="700" fill="#831843">reports/</text>
+  <text x="905" y="632" text-anchor="middle" font-size="13" fill="#9d174d">Official PDF result sheets,</text>
+  <text x="905" y="652" text-anchor="middle" font-size="13" fill="#9d174d">generated when polling closes</text>
+  <text x="905" y="690" text-anchor="middle" font-size="13" fill="#9d174d">CSV voter-roll export on demand</text>
+</svg>

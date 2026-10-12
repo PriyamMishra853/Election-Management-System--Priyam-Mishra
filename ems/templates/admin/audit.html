@@ -1,0 +1,2 @@
+{% extends 'layout/base.html' %}{% block title %}Audit log{% endblock %}{% block body %}<h1>Audit log</h1>
+<div class="card"><table><tr><th>Time</th><th>Actor</th><th>Action</th><th>Detail</th></tr>{% for a in rows %}<tr><td class="muted">{{ a.at|dt }}</td><td>{{ a.actor }}</td><td><code>{{ a.action }}</code></td><td>{{ a.detail }}</td></tr>{% endfor %}</table></div>{% endblock %}

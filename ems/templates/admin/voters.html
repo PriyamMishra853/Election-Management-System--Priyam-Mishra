@@ -1,0 +1,6 @@
+{% extends 'layout/base.html' %}{% block title %}Voters{% endblock %}{% block body %}
+<div class="row between"><h1>Voter roll</h1><a class="btn ghost" href="{{ url_for('admin.voters_csv') }}">⬇ Export CSV</a></div>
+<form class="row"><input name="q" value="{{ q }}" placeholder="Search by ID, name, Aadhaar or phone"><button class="btn">Search</button></form>
+<div class="card"><table><tr><th>Voter ID</th><th>Name</th><th>District</th><th>Phone</th><th>Status</th><th></th></tr>
+{% for v in voters %}<tr><td><code>{{ v.voter_id }}</code></td><td>{{ v.name }}</td><td>{{ v.district }}</td><td>{{ v.phone }}</td><td>{{ 'Active' if v.active else 'Blocked' }}</td><td><a href="{{ url_for('admin.voter_edit', uid=v.id) }}">Manage</a></td></tr>
+{% else %}<tr><td colspan="6" class="muted">No voters found.</td></tr>{% endfor %}</table></div>{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'layout/base.html' %}{% block title %}Ballot{% endblock %}{% block body %}
+<form method="post" class="card narrow" onsubmit="return confirm('Submit your vote? You cannot change it afterwards.')"><h1>{{ e.title }}</h1>
+<p class="muted">Ballot for <b>{{ me.district }}</b>. Your choice is stored anonymously and isn't linked to your identity.</p>
+<input type="hidden" name="csrf" value="{{ csrf }}"><div class="ballot">{% for c in cands %}
+<label class="choice"><input type="radio" name="candidate" value="{{ c.id }}" required><span class="party">{{ c.party }}</span><span>{{ c.name }}</span></label>
+{% else %}<p class="muted">No candidates in your district.</p>{% endfor %}</div>
+{% if cands %}<button class="btn">Cast vote</button>{% endif %}</form>{% endblock %}

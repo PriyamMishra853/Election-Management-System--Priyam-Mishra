@@ -1,0 +1,5 @@
+{% extends 'layout/base.html' %}{% block title %}Vote recorded{% endblock %}{% block body %}
+<div class="card narrow center"><h1>✔ Vote recorded</h1><p>Thank you for voting in <b>{{ e.title }}</b>.</p>
+<p>Your verification receipt:</p><code class="receipt">{{ code }}</code>
+<p class="muted">Save this code. You can enter it on the <a href="{{ url_for('public.verify') }}">Verify</a> page to confirm your ballot was counted. It does not show who you voted for.</p>
+<a class="btn" href="{{ url_for('voter.dashboard') }}">Back to dashboard</a></div>{% endblock %}

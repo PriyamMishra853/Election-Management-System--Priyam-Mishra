@@ -1,0 +1,5 @@
+{% extends 'layout/base.html' %}{% block title %}Register{% endblock %}{% block body %}
+<form method="post" class="card narrow"><h1>Voter registration</h1><p class="muted">Eligibility is checked automatically: 18 or older, and Aadhaar and phone not already registered.</p>
+<input type="hidden" name="csrf" value="{{ csrf }}">{% include 'partials/_person_fields.html' %}
+<div class="two"><label>Password<input type="password" name="password" required minlength="6"></label><label>Confirm password<input type="password" name="confirm" required></label></div>
+<button class="btn">Register</button></form>{% endblock %}

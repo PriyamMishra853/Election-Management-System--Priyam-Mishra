@@ -1,0 +1,7 @@
+{% extends 'layout/base.html' %}{% block title %}My elections{% endblock %}{% block body %}
+<h1>Hi, {{ me.name }}</h1><p class="muted">Voter ID <b>{{ me.voter_id }}</b> · District <b>{{ me.district }}</b></p>
+<div class="grid">{% for e in elections %}<div class="card">{% include 'partials/_status.html' %}<h3>{{ e.title }}</h3><p class="muted">{{ e.start_at|dt }} → {{ e.end_at|dt }}</p>
+{% if e.voted_at %}<p class="ok-text">✔ You voted on {{ e.voted_at|dt }}</p>{% elif status(e)=='live' %}<a class="btn" href="{{ url_for('voter.vote', eid=e.id) }}">Cast your vote</a>
+{% elif status(e)=='upcoming' %}<p class="muted">Voting opens {{ e.start_at|dt }}</p>{% endif %}
+{% if e.results_published %}<a class="btn sm ghost" href="{{ url_for('public.results', eid=e.id) }}">Results</a>{% endif %}</div>
+{% else %}<p class="muted">No elections yet.</p>{% endfor %}</div>{% endblock %}

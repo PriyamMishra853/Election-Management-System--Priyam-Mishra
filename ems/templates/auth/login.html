@@ -1,0 +1,5 @@
+{% extends 'layout/base.html' %}{% block title %}Sign in{% endblock %}{% block body %}
+<form method="post" class="card narrow"><h1>Sign in</h1><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Voter ID / Admin ID<input name="voter_id" value="{{ vid }}" required autofocus></label>
+<label>Password<input type="password" name="password" required></label><button class="btn">Sign in</button>
+<p class="muted">New voter? <a href="{{ url_for('auth.register') }}">Register here</a></p></form>{% endblock %}

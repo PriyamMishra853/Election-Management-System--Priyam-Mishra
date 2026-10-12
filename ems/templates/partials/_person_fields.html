@@ -1,0 +1,6 @@
+<label>Full name<input name="name" value="{{ form.name or '' }}" required minlength="3"></label>
+<div class="two"><label>Aadhaar number<input name="aadhaar" value="{{ form.aadhaar or '' }}" required pattern="\d{12}" inputmode="numeric" title="12 digits"></label>
+<label>Phone<input name="phone" value="{{ form.phone or '' }}" required pattern="\d{10}" inputmode="numeric" title="10 digits"></label></div>
+<div class="two"><label>Date of birth<input type="date" name="dob" value="{{ form.dob or '' }}" required></label>
+<label>Gender<select name="gender" required><option value="">Select…</option>{% for x in ['Male','Female','Other'] %}<option {{ 'selected' if form.gender==x }}>{{ x }}</option>{% endfor %}</select></label></div>
+<label>District<select name="district" required><option value="">Select…</option>{% for d in DISTRICTS %}<option {{ 'selected' if form.district==d }}>{{ d }}</option>{% endfor %}</select></label>

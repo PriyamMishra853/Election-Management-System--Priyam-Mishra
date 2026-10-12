@@ -1,0 +1,7 @@
+{% extends 'layout/base.html' %}{% block title %}{{ u.voter_id }}{% endblock %}{% block body %}{% set form = u %}
+<form method="post" class="card narrow"><h1>{{ u.voter_id }}</h1><input type="hidden" name="csrf" value="{{ csrf }}">{% include 'partials/_person_fields.html' %}
+<button class="btn" name="action" value="save">Save changes</button></form>
+<form method="post" class="card narrow row wrap"><input type="hidden" name="csrf" value="{{ csrf }}">
+<button class="btn ghost" name="action" value="toggle">{{ 'Block voter' if u.active else 'Unblock voter' }}</button>
+<button class="btn ghost" name="action" value="reset">Reset password</button>
+<button class="btn danger" name="action" value="delete" onclick="return confirm('Delete this voter permanently?')">Delete</button></form>{% endblock %}
